@@ -6,7 +6,7 @@ pipeline:
     environment:
       - DOCKER_HOST=tcp://127.0.0.1:2375
     commands:
-      - docker build -t dsp-hello-world-saurabh .
+      - docker build -t dsp-helloworld-saurabh .
     when:
       branch: master
       event: push
@@ -17,8 +17,8 @@ pipeline:
       - DOCKER_HOST=tcp://127.0.0.1:2375
     commands:
       - docker login -u="ukhomeofficedigital+dspworkshop" -p=${DOCKER_PASSWORD} quay.io
-      - docker tag dsp-hello-world-saurabh quay.io/ukhomeofficedigital/dsp-hello-world-saurabh:${DRONE_COMMIT_SHA}
-      - docker push quay.io/ukhomeofficedigital/dsp-hello-world-saurabh:${DRONE_COMMIT_SHA}
+      - docker tag dsp-helloworld-saurabh quay.io/ukhomeofficedigital/dsp-helloworld-saurabh:${DRONE_COMMIT_SHA}
+      - docker push quay.io/ukhomeofficedigital/dsp-helloworld-saurabh:${DRONE_COMMIT_SHA}
     when:
       branch: master
       event: push
